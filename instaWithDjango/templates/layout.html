@@ -1,8 +1,13 @@
-<!DOCTYPE html>
+{% load static %}
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Instagram with Django</title>
+
+    <link rel="stylesheet" href="{% static 'bootstrap-5.1.0-dist/css/bootstrap.min.css' %}" />
+    <script src="{% static 'jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'bootstrap-5.1.0-dist/js/bootstrap.min.js' %}"></script>
 </head>
 <body>
     {% block content %}
