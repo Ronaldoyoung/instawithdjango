@@ -5,7 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.urls import include, path, re_path # re_path 를 사용 하면 아무 주소를 넣어도 매칭이 된다.
 from django.views.generic import TemplateView
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
