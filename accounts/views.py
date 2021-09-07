@@ -1,11 +1,13 @@
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, logout_then_login
 from .forms import SignupForm
 # Create your views here.
 
 login = LoginView.as_view(template_name="accounts/login_form.html")
 
+def logout(request):
+    return logout_then_login(request)
 
 
 def signup(request):
