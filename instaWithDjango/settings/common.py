@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'debug_toolbar',
     'django_pydenticon',
+    'easy_thumbnails',
     # Loclas Apps
     'accounts',
     'instagram',
