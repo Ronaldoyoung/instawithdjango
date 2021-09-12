@@ -13,8 +13,6 @@ class BaseModel(models.Model):
 #  user
 #  -> Post.objects.filter(author=user)
 #  -> user.post_set.all()
-
-
 class Post(BaseModel):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='my_post_set', on_delete=models.CASCADE)
     photo = models.ImageField(upload_to="instagram/post/%Y/%m/%d")
@@ -42,6 +40,16 @@ class Post(BaseModel):
 
     class Meta:
         ordering = ['-id']
+
+
+class Comment(BaseModel):
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  #CASCADE 일대일의 관계에서 일의 관계가 삭제되면 외래키도 모두 다 삭제. null 값이나 다른값 변경은 on_delete=set_null
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    message = models.TextField()
+
+    class Meta:
+        ordering = ['-id']
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
